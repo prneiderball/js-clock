@@ -1,9 +1,15 @@
-const currentTime = clock();
-setInterval(clock, 1000);
+const button = document.querySelector("#button");
 
 function clock() {
   const now = new Date();
   const timeString = now.toLocaleTimeString();
-  document.querySelector("#clock").innerHTML = timeString;
-  return now;
+  document.querySelector("#clock-time").textContent = timeString;
 }
+
+clock();
+
+setInterval(clock, 1000);
+
+button.addEventListener("click", () => {
+  button.innerText = (button.innerText === "Click me!") ? "Clicked!" : "Click me!";
+});
