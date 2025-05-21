@@ -1,4 +1,5 @@
-const button = document.querySelector("#button");
+const formatBtn = document.getElementById("format-btn");
+const themeBtn = document.getElementById("theme-btn");
 
 function clock() {
   const now = new Date();
@@ -10,6 +11,12 @@ clock();
 
 setInterval(clock, 1000);
 
-button.addEventListener("click", () => {
-  button.innerText = (button.innerText === "Click me!") ? "Clicked!" : "Click me!";
+formatBtn.addEventListener("click", () => {
+  formatBtn.innerText = (formatBtn.innerText === "12/24") ? "Clicked!" : "12/24";
+  // TODO: Toggle the time between 12 hour and 24 hour format
+});
+
+themeBtn.addEventListener("click", () => {
+  themeBtn.innerText = (themeBtn.innerText === "color change") ? "changed!" : "color change";
+  // TODO: Toggle the time between 12 hour and 24 hour format
 });
