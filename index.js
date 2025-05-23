@@ -1,9 +1,17 @@
 const formatBtn = document.getElementById("format-btn");
 const themeBtn = document.getElementById("theme-btn");
 
+let is24HourFormat = false;
+
 function clock() {
   const now = new Date();
-  const timeString = now.toLocaleTimeString();
+  const options = {
+    hour: is24HourFormat ? "2-digit" : "numeric",
+    minute: "2-digit",
+    hour12: !is24HourFormat,
+  };
+
+  const timeString = now.toLocaleTimeString([], options);
   document.querySelector("#clock-time").textContent = timeString;
   return timeString;
 }
@@ -15,18 +23,19 @@ function updateDate() {
   return dateString;
 }
 
-// Initialize date and time
 updateDate();
 clock();
 setInterval(clock, 1000);
 
 // Button event listeners
 formatBtn.addEventListener("click", () => {
-  formatBtn.innerText = (formatBtn.innerText === "12/24") ? "Clicked!" : "12/24";
-  // TODO: Toggle the time between 12 hour and 24 hour format
+   is24HourFormat = !is24HourFormat;
+  formatBtn.innerText =
+    formatBtn.innerText === "24-hour" ? "12-hour" : "24-hour";
 });
 
 themeBtn.addEventListener("click", () => {
-  themeBtn.innerText = (themeBtn.innerText === "color change") ? "changed!" : "color change";
+  themeBtn.innerText =
+    themeBtn.innerText === "color change" ? "changed!" : "color change";
   // TODO: Add theme change functionality
 });
