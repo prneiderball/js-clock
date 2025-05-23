@@ -29,7 +29,7 @@ setInterval(clock, 1000);
 
 // Button event listeners
 formatBtn.addEventListener("click", () => {
-   is24HourFormat = !is24HourFormat;
+  is24HourFormat = !is24HourFormat;
   formatBtn.innerText =
     formatBtn.innerText === "24-hour" ? "12-hour" : "24-hour";
 });

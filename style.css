@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap");
 
 :root {
   --accent: #00ff9f;
@@ -13,7 +13,9 @@
   --star-speed: 60s;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -25,7 +27,7 @@ body {
   background-size: 300% 300%;
   animation: bg-shift 30s ease infinite;
   color: var(--accent);
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,24 +35,20 @@ body {
 }
 
 body::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
-  background: url("data:image/svg+xml;utf8,\
-<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'>\
-<circle cx='10' cy='20' r='0.5' fill='white' opacity='0.3'/>\
-<circle cx='80' cy='50' r='0.7' fill='white' opacity='0.2'/>\
-<circle cx='30' cy='80' r='0.4' fill='white' opacity='0.15'/>\
-</svg>") repeat;
-  animation: star-move var(--star-speed) linear infinite;
-  z-index: 0;
 }
 
 body::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
-  background-image: linear-gradient(to bottom, var(--scanline-color) 1px, transparent 1px);
+  background-image: linear-gradient(
+    to bottom,
+    var(--scanline-color) 1px,
+    transparent 1px
+  );
   background-size: 100% 4px;
   pointer-events: none;
   z-index: 1;
@@ -62,10 +60,10 @@ body::after {
   margin-bottom: 20px;
   color: var(--accent);
   text-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent);
-  animation: neon-pulse var(--pulse-speed) infinite alternate, flicker var(--flicker-speed) infinite;
+  animation: neon-pulse var(--pulse-speed) infinite alternate,
+    flicker var(--flicker-speed) infinite;
   position: absolute;
   top: 0;
-
 }
 
 .clock {
@@ -87,7 +85,8 @@ body::after {
   background: var(--neon-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: neon-pulse var(--pulse-speed) infinite alternate, flicker var(--flicker-speed) infinite;
+  animation: neon-pulse var(--pulse-speed) infinite alternate,
+    flicker var(--flicker-speed) infinite;
   user-select: none;
   position: relative;
 }
@@ -140,57 +139,97 @@ body::after {
   transform: scale(0.98);
 }
 
-#theme-btn {
+.theme-btn {
   position: absolute;
   top: 5px;
   left: 5px;
   padding: 8px 12px;
   font-size: 1rem;
-  z-index: 3;
+  visibility: hidden;
 }
 
 @keyframes star-move {
-  from { transform: translateY(0); }
-  to   { transform: translateY(-100%); }
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
 }
 
 @keyframes neon-pulse {
-  0%,100% {
-    text-shadow:
-      0 0 5px var(--accent),
-      0 0 10px var(--accent),
+  0%,
+  100% {
+    text-shadow: 0 0 5px var(--accent), 0 0 10px var(--accent),
       0 0 20px var(--accent);
   }
   50% {
-    text-shadow:
-      0 0 15px var(--accent),
-      0 0 30px var(--accent),
+    text-shadow: 0 0 15px var(--accent), 0 0 30px var(--accent),
       0 0 60px var(--accent);
   }
 }
 
 @keyframes flicker {
-  0%,19%,21%,23%,25%,54%,56%,100% {
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
     opacity: 1;
   }
-  20%,24%,55% {
+  20%,
+  24%,
+  55% {
     opacity: 0.8;
   }
 }
 
 @keyframes glitch {
-  0%   { clip-path: inset(0 0 95% 0); transform: translate(0,0); }
-  5%   { clip-path: inset(10% 0 85% 0); transform: translate(-2px, -2px); }
-  10%  { clip-path: inset(85% 0 5% 0); transform: translate(2px, 2px); }
-  15%  { clip-path: inset(45% 0 45% 0); transform: translate(-1px, 1px); }
-  20%  { clip-path: inset(10% 0 85% 0); transform: translate(2px, -1px); }
-  25%  { clip-path: inset(85% 0 5% 0); transform: translate(-2px, 1px); }
-  30%  { clip-path: inset(0 0 95% 0); transform: translate(1px, -2px); }
-  100% { clip-path: inset(0 0 0 0); transform: translate(0,0); }
+  0% {
+    clip-path: inset(0 0 95% 0);
+    transform: translate(0, 0);
+  }
+  5% {
+    clip-path: inset(10% 0 85% 0);
+    transform: translate(-2px, -2px);
+  }
+  10% {
+    clip-path: inset(85% 0 5% 0);
+    transform: translate(2px, 2px);
+  }
+  15% {
+    clip-path: inset(45% 0 45% 0);
+    transform: translate(-1px, 1px);
+  }
+  20% {
+    clip-path: inset(10% 0 85% 0);
+    transform: translate(2px, -1px);
+  }
+  25% {
+    clip-path: inset(85% 0 5% 0);
+    transform: translate(-2px, 1px);
+  }
+  30% {
+    clip-path: inset(0 0 95% 0);
+    transform: translate(1px, -2px);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+    transform: translate(0, 0);
+  }
 }
 
 @keyframes bg-shift {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
